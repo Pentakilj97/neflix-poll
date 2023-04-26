@@ -10,5 +10,9 @@ class DataService{
     static putSerie(serie){
         return fetch(this.DATA_URL+'/'+serie.id, {method:'PUT', headers:{'content-type':'application/json'}, body:JSON.stringify(serie)}).then(resp => resp.json())
     }
-
+    
+    static postSerie(serie){
+        const jsonSerie = JSON.stringify(serie)
+        return fetch(this.DATA_URL,{method:'POST', headers:{'content-type':'application/json'}, body:jsonSerie})
+    }
 }

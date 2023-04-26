@@ -106,7 +106,15 @@ function saveNewSerie(){
 
     const newSerie = new Serie(newSerieTitle, newSerieCreator);
 
-    seriesCollection.addSerie(newSerie);
+    console.log('newSerie',newSerie)
 
-    displayCollection();
+    DataService.postSerie(NewSerie).then(savedSerie =>{
+        newSerie.id=savedSerie.id;
+        seriesCollection.addSerie(newSerie)
+        displayCollection()
+    })
+
+    // seriesCollection.addSerie(newSerie);
+
+    // displayCollection();
 }
